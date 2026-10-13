@@ -1,0 +1,26 @@
+[
+{
+  "directory": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\SpeechRecognizer\\miniaudio_impl.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\SpeechRecognizer\\miniaudio_impl.cpp",
+  "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/SpeechRecognizer/miniaudio_impl.cpp",
+  "output": "CMakeFiles/voice_app.dir/SpeechRecognizer/miniaudio_impl.cpp.obj"
+},
+{
+  "directory": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\SpeechRecognizer\\SpeechRecognizer.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\SpeechRecognizer\\SpeechRecognizer.cpp",
+  "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/SpeechRecognizer/SpeechRecognizer.cpp",
+  "output": "CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj"
+},
+{
+  "directory": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\main.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\main.cpp",
+  "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/main.cpp",
+  "output": "CMakeFiles/voice_app.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\commands\\SimpleOpenCommands.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\commands\\SimpleOpenCommands.cpp",
+  "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/SimpleOpenCommands.cpp",
+  "output": "CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.obj"
+}
+]

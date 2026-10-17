@@ -22,5 +22,11 @@
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\commands\\SimpleOpenCommands.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\commands\\SimpleOpenCommands.cpp",
   "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/SimpleOpenCommands.cpp",
   "output": "CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.obj"
+},
+{
+  "directory": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\SpeechRecognizer\\AudioPlayer.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\SpeechRecognizer\\AudioPlayer.cpp",
+  "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/SpeechRecognizer/AudioPlayer.cpp",
+  "output": "CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj"
 }
 ]

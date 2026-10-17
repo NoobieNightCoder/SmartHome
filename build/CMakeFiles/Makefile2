@@ -84,12 +84,12 @@ clean: CMakeFiles/voice_app.dir/clean
 CMakeFiles/voice_app.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\build\CMakeFiles --progress-num=1,2,3,4,5 "Built target voice_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\build\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target voice_app"
 .PHONY : CMakeFiles/voice_app.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/voice_app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\build\CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\build\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/voice_app.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\build\CMakeFiles 0
 .PHONY : CMakeFiles/voice_app.dir/rule
@@ -101,7 +101,7 @@ voice_app: CMakeFiles/voice_app.dir/rule
 # codegen rule for target.
 CMakeFiles/voice_app.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\build\CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target voice_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\build\CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target voice_app"
 .PHONY : CMakeFiles/voice_app.dir/codegen
 
 # clean rule for target.

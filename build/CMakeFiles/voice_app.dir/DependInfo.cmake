@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/SpeechRecognizer/AudioPlayer.cpp" "CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj" "gcc" "CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj.d"
   "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/SpeechRecognizer/SpeechRecognizer.cpp" "CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj" "gcc" "CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj.d"
   "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/SpeechRecognizer/miniaudio_impl.cpp" "CMakeFiles/voice_app.dir/SpeechRecognizer/miniaudio_impl.cpp.obj" "gcc" "CMakeFiles/voice_app.dir/SpeechRecognizer/miniaudio_impl.cpp.obj.d"
   "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/SimpleOpenCommands.cpp" "CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.obj" "gcc" "CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.obj.d"

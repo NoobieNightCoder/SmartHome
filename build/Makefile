@@ -128,6 +128,30 @@ voice_app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/build
 .PHONY : voice_app/fast
 
+SpeechRecognizer/AudioPlayer.obj: SpeechRecognizer/AudioPlayer.cpp.obj
+.PHONY : SpeechRecognizer/AudioPlayer.obj
+
+# target to build an object file
+SpeechRecognizer/AudioPlayer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj
+.PHONY : SpeechRecognizer/AudioPlayer.cpp.obj
+
+SpeechRecognizer/AudioPlayer.i: SpeechRecognizer/AudioPlayer.cpp.i
+.PHONY : SpeechRecognizer/AudioPlayer.i
+
+# target to preprocess a source file
+SpeechRecognizer/AudioPlayer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.i
+.PHONY : SpeechRecognizer/AudioPlayer.cpp.i
+
+SpeechRecognizer/AudioPlayer.s: SpeechRecognizer/AudioPlayer.cpp.s
+.PHONY : SpeechRecognizer/AudioPlayer.s
+
+# target to generate assembly for a file
+SpeechRecognizer/AudioPlayer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.s
+.PHONY : SpeechRecognizer/AudioPlayer.cpp.s
+
 SpeechRecognizer/SpeechRecognizer.obj: SpeechRecognizer/SpeechRecognizer.cpp.obj
 .PHONY : SpeechRecognizer/SpeechRecognizer.obj
 
@@ -233,6 +257,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... voice_app
+	@echo ... SpeechRecognizer/AudioPlayer.obj
+	@echo ... SpeechRecognizer/AudioPlayer.i
+	@echo ... SpeechRecognizer/AudioPlayer.s
 	@echo ... SpeechRecognizer/SpeechRecognizer.obj
 	@echo ... SpeechRecognizer/SpeechRecognizer.i
 	@echo ... SpeechRecognizer/SpeechRecognizer.s

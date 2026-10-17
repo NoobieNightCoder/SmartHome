@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe"
   "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe.manifest"
   "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.pdb"
+  "CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj"
+  "CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj.d"
   "CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj"
   "CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj.d"
   "CMakeFiles/voice_app.dir/SpeechRecognizer/miniaudio_impl.cpp.obj"

@@ -14,12 +14,12 @@
 using namespace std;
 
 namespace {
-constexpr double WAKE_WORD_THRESHOLD = 88.0;
-constexpr double COMMAND_MATCH_THRESHOLD = 78.0;
+const double WAKE_WORD_THRESHOLD = 88.0;
+const double COMMAND_MATCH_THRESHOLD = 78.0;
 
 string trimCopy(string text) {
     auto notSpace = [](unsigned char ch) {
-        return !std::isspace(ch);
+        return !isspace(ch);
     };
 
     text.erase(text.begin(), find_if(text.begin(), text.end(), notSpace));
@@ -32,7 +32,7 @@ string collapseSpaces(string text) {
     bool inSpace = false;
 
     for (unsigned char ch : text) {
-        if (std::isspace(ch)) {
+        if (isspace(ch)) {
             if (!inSpace) {
                 result.push_back(' ');
                 inSpace = true;
@@ -164,7 +164,7 @@ string SpeechRecognizer::extractVoskText(const string& jsonText) const {
 bool SpeechRecognizer::stripWakeWord(const string& text, string& remainder) const {
     vector<string> tokens = tokenize(text);
     for (size_t i = 0; i < tokens.size(); ++i) {
-        double score = std::max(rapidfuzz::fuzz::WRatio(tokens[i], VA_PREFIX),
+        double score = max(rapidfuzz::fuzz::WRatio(tokens[i], VA_PREFIX),
                                 rapidfuzz::fuzz::partial_ratio(tokens[i], VA_PREFIX));
         if (score >= WAKE_WORD_THRESHOLD) {
             remainder = joinTokens(tokens, i + 1);
@@ -172,7 +172,7 @@ bool SpeechRecognizer::stripWakeWord(const string& text, string& remainder) cons
         }
     }
 
-    double fullScore = std::max(rapidfuzz::fuzz::WRatio(text, VA_PREFIX),
+    double fullScore = max(rapidfuzz::fuzz::WRatio(text, VA_PREFIX),
                                 rapidfuzz::fuzz::partial_ratio(text, VA_PREFIX));
     if (fullScore >= WAKE_WORD_THRESHOLD) {
         remainder.clear();
@@ -191,7 +191,7 @@ string SpeechRecognizer::findBestCommandId(const string& text, string& matchedPh
     for (const auto& command : VA_CMD_LIST()) {
         for (const auto& phrase : command.phrases) {
             string normalizedPhrase = commandSplit(phrase);
-            double score = std::max({rapidfuzz::fuzz::WRatio(text, normalizedPhrase),
+            double score = max({rapidfuzz::fuzz::WRatio(text, normalizedPhrase),
                                      rapidfuzz::fuzz::token_set_ratio(text, normalizedPhrase),
                                      rapidfuzz::fuzz::partial_ratio(text, normalizedPhrase)});
 
@@ -259,7 +259,7 @@ void SpeechRecognizer::buildCommandRegistry() {
 void SpeechRecognizer::executeCommand(const string& commandId, const string& argument) {
     auto it = commandRegistry.find(commandId);
     if (it == commandRegistry.end()) {
-        cout << "[VoiceAssistant] Command object not found for id: " << commandId << endl;
+        cout << "Command object not found for id: " << commandId << endl;
         return;
     }
 
@@ -321,7 +321,7 @@ void SpeechRecognizer::shutdown() {
     shutdownComplete = true;
 }
 
-SpeechRecognizer::SpeechRecognizer(const std::string& path) {
+SpeechRecognizer::SpeechRecognizer(const string& path) {
     ModelPtr newModel(vosk_model_new(path.c_str()));
     if (!newModel)
         throw runtime_error("Failed to load Vosk model.");
@@ -349,7 +349,7 @@ void SpeechRecognizer::start() {
         if (!recordingStatus)
             throw runtime_error("Failed to start recording!");
 
-        cout << "[VoiceAssistant] Listening for wake word: " << VA_PREFIX << endl;
+        cout << "Ready to listen!" << endl;
     } catch (const exception& ex) {
         cout << ex.what() << endl;
     }

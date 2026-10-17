@@ -131,12 +131,28 @@ CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.s"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\commands\SimpleOpenCommands.cpp -o CMakeFiles\voice_app.dir\commands\SimpleOpenCommands.cpp.s
 
+CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj: CMakeFiles/voice_app.dir/flags.make
+CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj: CMakeFiles/voice_app.dir/includes_CXX.rsp
+CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj: C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/SpeechRecognizer/AudioPlayer.cpp
+CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj: CMakeFiles/voice_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj -MF CMakeFiles\voice_app.dir\SpeechRecognizer\AudioPlayer.cpp.obj.d -o CMakeFiles\voice_app.dir\SpeechRecognizer\AudioPlayer.cpp.obj -c C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\SpeechRecognizer\AudioPlayer.cpp
+
+CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\SpeechRecognizer\AudioPlayer.cpp > CMakeFiles\voice_app.dir\SpeechRecognizer\AudioPlayer.cpp.i
+
+CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\SpeechRecognizer\AudioPlayer.cpp -o CMakeFiles\voice_app.dir\SpeechRecognizer\AudioPlayer.cpp.s
+
 # Object files for target voice_app
 voice_app_OBJECTS = \
 "CMakeFiles/voice_app.dir/SpeechRecognizer/miniaudio_impl.cpp.obj" \
 "CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj" \
 "CMakeFiles/voice_app.dir/main.cpp.obj" \
-"CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.obj"
+"CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.obj" \
+"CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj"
 
 # External object files for target voice_app
 voice_app_EXTERNAL_OBJECTS =
@@ -145,12 +161,13 @@ C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe: CMakeFil
 C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe: CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj
 C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe: CMakeFiles/voice_app.dir/main.cpp.obj
 C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe: CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.obj
+C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe: CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj
 C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe: CMakeFiles/voice_app.dir/build.make
 C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe: C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/vosk/libvosk.lib
 C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe: CMakeFiles/voice_app.dir/linkLibs.rsp
 C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe: CMakeFiles/voice_app.dir/objects1.rsp
 C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe: CMakeFiles/voice_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\bin\voice_app.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\bin\voice_app.exe"
 	"C:\Program Files\CMake\bin\cmake.exe" -E remove -f C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin/voice_app.exe
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\voice_app.dir\link.txt --verbose=$(VERBOSE)
 	"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/vosk/libvosk.dll C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/vosk/libgcc_s_seh-1.dll C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/vosk/libstdc++-6.dll C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/vosk/libwinpthread-1.dll C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/bin

@@ -417,4 +417,5 @@ CMakeFiles/voice_app.dir/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/vector \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc \
+ C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\SpeechRecognizer/AudioPlayer.h

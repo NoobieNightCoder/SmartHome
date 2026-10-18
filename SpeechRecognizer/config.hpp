@@ -9,10 +9,10 @@ struct VoiceCommandSpec {
     std::vector<std::string> phrases;
 };
 
-inline constexpr const char* VA_NAME = "Ксения";
-inline constexpr const char* VA_PREFIX = "ксения";
-inline constexpr float VA_VER = 0.3f;
-inline constexpr const char* PLANLIST_PATH = "C:/Users/Noobie/Documents/PlanList.txt";
+inline const char* VA_NAME = "Ксения";
+inline const char* VA_PREFIX = "ксения";
+inline const float VA_VER = 0.3f;
+inline const char* PLANLIST_PATH = "C:/Users/Noobie/Documents/PlanList.txt";
 
 inline const std::vector<std::string>& VA_TBR() {
     static const std::vector<std::string> value = {

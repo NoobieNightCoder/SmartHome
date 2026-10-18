@@ -42,6 +42,7 @@ private:
     bool deviceStarted{false};
     bool shutdownComplete{false};
     bool wakeWordArmed{false};
+    
     std::unordered_map<std::string, std::unique_ptr<ICommand>> commandRegistry;
 
     bool initializeMicrophone();

@@ -3,6 +3,7 @@
 #include <filesystem>
 
 #include "SpeechRecognizer/SpeechRecognizer.h"
+#include "SpeechRecognizer/AudioPlayer.h"
 
 using namespace std;
 
@@ -19,6 +20,24 @@ string resolveModelPath() {
     }
 
     return "bin/models/vosk-model-small-ru-0.22";
+}
+
+string resolveResponsePath() {
+    char modulePath[MAX_PATH]{};
+    DWORD length = GetModuleFileNameA(nullptr, modulePath, MAX_PATH);
+
+    if (length > 0 && length < MAX_PATH) {
+        filesystem::path projectRoot = filesystem::path(modulePath).parent_path().parent_path();
+        filesystem::path candidate = projectRoot / "response.wav";
+        if (filesystem::exists(candidate))
+            return candidate.string();
+    }
+
+    filesystem::path candidate = filesystem::current_path() / "response.wav";
+    if (filesystem::exists(candidate))
+        return candidate.string();
+
+    throw runtime_error("Не найден response.wav в корне проекта или текущей рабочей папке.");
 }
 
 void waitForExit() {
@@ -47,6 +66,17 @@ int main() {
 
         SpeechRecognizer recognizer(modelPath);
         cout << "[Startup] Model loaded." << endl;
+
+        AudioPlayer audioPlayer;
+        if (!audioPlayer.isInitialized()) {
+            throw runtime_error("Не удалось инициализировать аудиоплеер.");
+        }
+
+        const string responsePath = resolveResponsePath();
+        cout << "[Startup] Playing audio: " << responsePath << endl;
+        if (!audioPlayer.playWav(responsePath.c_str())) {
+            throw runtime_error("Не удалось воспроизвести response.wav.");
+        }
 
         recognizer.start();
         cout << "[Startup] Microphone started." << endl;

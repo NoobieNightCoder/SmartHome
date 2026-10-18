@@ -1,64 +1,60 @@
 #include "AudioPlayer.h"
 
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 using namespace std;
 
 AudioPlayer::AudioPlayer() {
-    ma_result result = ma_engine_init(nullptr, &engine_);
+    ma_result result = ma_engine_init(nullptr, &engine);
 
     if (result != MA_SUCCESS) {
         cerr << "Ошибка инициализации аудиовыхода\n";
-        return;
+    } else {
+        initialized = true;
     }
-
-    initialized_ = true;
 }
 
 AudioPlayer::~AudioPlayer() {
-    if (initialized_) {
-        ma_engine_uninit(&engine_);
+    if (initialized) {
+        ma_engine_uninit(&engine);
     }
 }
 
 bool AudioPlayer::isInitialized() const {
-    return initialized_;
+    return initialized;
 }
 
 bool AudioPlayer::playWav(const char* filePath) {
-    if (!initialized_ || filePath == nullptr) {
-        return false;
-    }
+    bool result = true;
 
-    ma_sound sound{};
+    if (initialized && filePath != nullptr) {
+        ma_sound sound{};
 
-    ma_result result = ma_sound_init_from_file(
-        &engine_,
-        filePath,
-        0,
-        nullptr,
-        nullptr,
-        &sound
-    );
+        ma_result audioResult = ma_sound_init_from_file(&engine, filePath, 0, nullptr, nullptr, &sound);
 
-    if (result != MA_SUCCESS) {
-        cerr << "Не удалось открыть аудиофайл: "
-                  << filePath << '\n';
-        return false;
-    }
+        if (audioResult != MA_SUCCESS) {
+            cerr << "Не удалось открыть аудиофайл: " << filePath << '\n';
+            result = false;
+        }
 
-    result = ma_sound_start(&sound);
+        if(result)
+            audioResult = ma_sound_start(&sound);
 
-    if (result != MA_SUCCESS) {
-        cerr << "Не удалось воспроизвести аудио\n";
-        ma_sound_uninit(&sound);
-        return false;
-    }
+        if (result && audioResult != MA_SUCCESS) {
+            cerr << "Не удалось воспроизвести аудио\n";
+            ma_sound_uninit(&sound);
+            result = false;
+        }
 
-    while (ma_sound_is_playing(&sound)) {
-        ma_sleep(20);
-    }
+        while (ma_sound_is_playing(&sound) && result) {
+            this_thread::sleep_for(chrono::milliseconds(20));
+        }
 
-    ma_sound_uninit(&sound);
-    return true;
+        if(result)
+            ma_sound_uninit(&sound);
+    } else result = false;
+
+    return result;
 }

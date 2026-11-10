@@ -13,13 +13,32 @@ CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj: \
  C:/msys64/ucrt64/include/stdarg.h \
  C:/msys64/ucrt64/include/_mingw_stdarg.h \
  C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/vosk/vosk_api.h \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/ICommand.h \
- C:/msys64/ucrt64/include/c++/15.2.0/string \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
+ C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\SpeechRecognizer\CommandProcessor.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/chrono \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/ratio \
+ C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++config.h \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/os_defines.h \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
  C:/msys64/ucrt64/include/c++/15.2.0/pstl/pstl_config.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/version.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
+ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
+ C:/msys64/ucrt64/include/stdint.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/limits \
+ C:/msys64/ucrt64/include/c++/15.2.0/ctime \
+ C:/msys64/ucrt64/include/time.h C:/msys64/ucrt64/include/sys/timeb.h \
+ C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
+ C:/msys64/ucrt64/include/_timeval.h \
+ C:/msys64/ucrt64/include/pthread_time.h \
+ C:/msys64/ucrt64/include/pthread_compat.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/parse_numbers.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/string \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/requires_hosted.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stringfwd.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/memoryfwd.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/char_traits.h \
@@ -33,8 +52,6 @@ CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj: \
  C:/msys64/ucrt64/include/_mingw_stat64.h \
  C:/msys64/ucrt64/include/swprintf.inl \
  C:/msys64/ucrt64/include/sec_api/wchar_s.h \
- C:/msys64/ucrt64/include/c++/15.2.0/type_traits \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/version.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/allocator.h \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/new_allocator.h \
@@ -43,7 +60,6 @@ CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/functexcept.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/exception_defines.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/move.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/cpp_type_traits.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/localefwd.h \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/c++locale.h \
  C:/msys64/ucrt64/include/c++/15.2.0/clocale \
@@ -59,11 +75,9 @@ CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/debug/assertions.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator_base_types.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_iterator.h \
- C:/msys64/ucrt64/include/c++/15.2.0/ext/type_traits.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/ptr_traits.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_function.h \
  C:/msys64/ucrt64/include/c++/15.2.0/backward/binders.h \
- C:/msys64/ucrt64/include/c++/15.2.0/ext/numeric_traits.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algobase.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_pair.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/utility.h \
@@ -104,6 +118,11 @@ CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/uses_allocator_args.h \
  C:/msys64/ucrt64/include/c++/15.2.0/tuple \
+ C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/CommandDispatcher.h \
+ C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/ICommand.h \
+ C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/CommandResult.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/utility \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
  C:/msys64/ucrt64/include/c++/15.2.0/memory \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_uninitialized.h \
@@ -123,11 +142,6 @@ CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj: \
  C:/msys64/ucrt64/include/corecrt_startup.h \
  C:/msys64/ucrt64/include/signal.h \
  C:/msys64/ucrt64/include/pthread_signal.h \
- C:/msys64/ucrt64/include/time.h C:/msys64/ucrt64/include/sys/timeb.h \
- C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
- C:/msys64/ucrt64/include/_timeval.h \
- C:/msys64/ucrt64/include/pthread_time.h \
- C:/msys64/ucrt64/include/pthread_compat.h \
  C:/msys64/ucrt64/include/sched.h \
  C:/msys64/ucrt64/include/pthread_unistd.h \
  C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
@@ -149,16 +163,18 @@ CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/node_handle.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/erase_if.h \
- C:/msys64/ucrt64/include/c++/15.2.0/vector \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/SimpleOpenCommands.h \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/SpeechRecognizer/config.hpp \
- C:/msys64/ucrt64/include/c++/15.2.0/map \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tree.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/condition_variable \
+ C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_lock.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/deque \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_deque.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/deque.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/mutex \
+ C:/msys64/ucrt64/include/c++/15.2.0/thread \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/std_thread.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/this_thread_sleep.h \
+ C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/Exceptions/IExceptions.h \
  C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/TextUtils.h \
  C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
@@ -167,9 +183,35 @@ CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
  C:/msys64/ucrt64/include/c++/15.2.0/cwctype \
- C:/msys64/ucrt64/include/wctype.h C:/msys64/ucrt64/include/windows.h \
- C:/msys64/ucrt64/include/sdkddkver.h C:/msys64/ucrt64/include/excpt.h \
- C:/msys64/ucrt64/include/windef.h \
+ C:/msys64/ucrt64/include/wctype.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/sstream \
+ C:/msys64/ucrt64/include/c++/15.2.0/istream \
+ C:/msys64/ucrt64/include/c++/15.2.0/ios \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/system_error \
+ C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
+ C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/ostream \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/vector \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc \
+ C:/msys64/ucrt64/include/windows.h C:/msys64/ucrt64/include/sdkddkver.h \
+ C:/msys64/ucrt64/include/excpt.h C:/msys64/ucrt64/include/windef.h \
  C:/msys64/ucrt64/include/winapifamily.h \
  C:/msys64/ucrt64/include/minwindef.h \
  C:/msys64/ucrt64/include/specstrings.h C:/msys64/ucrt64/include/sal.h \
@@ -386,78 +428,4 @@ CMakeFiles/voice_app.dir/SpeechRecognizer/SpeechRecognizer.cpp.obj: \
  C:/msys64/ucrt64/include/sec_api/stralign_s.h \
  C:/msys64/ucrt64/include/winsvc.h C:/msys64/ucrt64/include/mcx.h \
  C:/msys64/ucrt64/include/imm.h \
- C:/msys64/ucrt64/include/c++/15.2.0/iostream \
- C:/msys64/ucrt64/include/c++/15.2.0/ostream \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.h \
- C:/msys64/ucrt64/include/c++/15.2.0/ios \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/ios_base.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_classes.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/system_error \
- C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/error_constants.h \
- C:/msys64/ucrt64/include/c++/15.2.0/stdexcept \
- C:/msys64/ucrt64/include/c++/15.2.0/streambuf \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.h \
- C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/streambuf_iterator.h \
- C:/msys64/ucrt64/include/c++/15.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/locale_facets.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/basic_ios.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/ostream.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/istream \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/istream.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/sstream \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/sstream.tcc \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/fuzz.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/CharSet.hpp \
- C:/msys64/ucrt64/include/c++/15.2.0/array \
- C:/msys64/ucrt64/include/c++/15.2.0/compare \
- C:/msys64/ucrt64/include/c++/15.2.0/limits \
- C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
- C:/msys64/ucrt64/include/stdint.h \
- C:/msys64/ucrt64/include/c++/15.2.0/unordered_set \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_set.h \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/PatternMatchVector.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/GrowingHashmap.hpp \
- C:/msys64/ucrt64/include/c++/15.2.0/utility \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/Matrix.hpp \
- C:/msys64/ucrt64/include/c++/15.2.0/cassert \
- C:/msys64/ucrt64/include/assert.h \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/Range.hpp \
- C:/msys64/ucrt64/include/c++/15.2.0/iterator \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/stream_iterator.h \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/type_traits.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/types.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/config.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/intrinsics.hpp \
- C:/msys64/ucrt64/include/c++/15.2.0/bitset \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/common.hpp \
- C:/msys64/ucrt64/include/c++/15.2.0/cstring \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/SplittedSentenceView.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/common_impl.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/distance/Indel.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/distance/Indel_impl.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/distance.hpp \
- C:/msys64/ucrt64/include/c++/15.2.0/cmath \
- C:/msys64/ucrt64/include/math.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/specfun.h \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/gamma.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/special_function_util.h \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/bessel_function.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/beta_function.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/ell_integral.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/exp_integral.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/hypergeometric.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/legendre_function.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/modified_bessel_func.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_hermite.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/poly_laguerre.tcc \
- C:/msys64/ucrt64/include/c++/15.2.0/tr1/riemann_zeta.tcc \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/simd.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/details/simd_sse2.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/distance/LCSseq.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/distance/LCSseq_impl.hpp \
- C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/rapidfuzz/fuzz_impl.hpp
+ C:/msys64/ucrt64/include/c++/15.2.0/iostream

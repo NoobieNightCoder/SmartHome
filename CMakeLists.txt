@@ -18,18 +18,23 @@ add_executable(voice_app
     SpeechRecognizer/SpeechRecognizer.cpp
     main.cpp
     Commands/ICommand.h
+    Commands/CommandResult.h
+    Commands/CommandDispatcher.h
+    Commands/CommandDispatcher.cpp
     Commands/SimpleOpenCommands.h
     Commands/SimpleOpenCommands.cpp
     SpeechRecognizer/config.hpp
     SpeechRecognizer/AudioPlayer.h
     SpeechRecognizer/AudioPlayer.cpp
+    SpeechRecognizer/CommandProcessor.h
+    SpeechRecognizer/CommandProcessor.cpp
     Exceptions/IExceptions.h
     Exceptions/Exceptions.cpp
 )
 
 target_include_directories(voice_app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-target_link_options(voice_app PRIVATE -static-libgcc -static-libstdc++)
+target_link_options(voice_app PRIVATE -static-libgcc -static-libstdc++ -Wl,--subsystem,console)
 
 # The executable is built with MSYS2 UCRT64.  Its libwinpthread runtime must
 # come from that same toolchain: older Vosk bundles do not export nanosleep64.

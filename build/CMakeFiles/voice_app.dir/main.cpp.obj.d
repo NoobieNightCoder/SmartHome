@@ -395,7 +395,13 @@ CMakeFiles/voice_app.dir/main.cpp.obj: \
  C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\SpeechRecognizer/SpeechRecognizer.h \
  C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/include/miniaudio/miniaudio.h \
  C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/vosk/vosk_api.h \
+ C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\SpeechRecognizer/CommandProcessor.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/chrono \
+ C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/CommandDispatcher.h \
  C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/ICommand.h \
+ C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/CommandResult.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/utility \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
  C:/msys64/ucrt64/include/c++/15.2.0/memory \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_uninitialized.h \
@@ -414,8 +420,24 @@ CMakeFiles/voice_app.dir/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/node_handle.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/erase_if.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/condition_variable \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_lock.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/deque \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_deque.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/deque.tcc \
+ C:/msys64/ucrt64/include/c++/15.2.0/mutex \
+ C:/msys64/ucrt64/include/c++/15.2.0/thread \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/std_thread.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/this_thread_sleep.h \
+ C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\SpeechRecognizer/config.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/map \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tree.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_map.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_multimap.h \
  C:/msys64/ucrt64/include/c++/15.2.0/vector \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_vector.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_bvector.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc \
- C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\SpeechRecognizer/AudioPlayer.h
+ C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\SpeechRecognizer/AudioPlayer.h \
+ C:\Users\Noobie\Documents\Programms\AI_Assistant_CPP\Exceptions/IExceptions.h

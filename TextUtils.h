@@ -1,9 +1,67 @@
 #pragma once
 
 #include <algorithm>
+#include <cctype>
 #include <cwctype>
+#include <sstream>
 #include <string>
+#include <vector>
 #include <windows.h>
+
+namespace TextUtils {
+
+inline std::string trimCopy(std::string text) {
+    auto notSpace = [](unsigned char ch) {
+        return !std::isspace(ch);
+    };
+
+    text.erase(text.begin(), std::find_if(text.begin(), text.end(), notSpace));
+    text.erase(std::find_if(text.rbegin(), text.rend(), notSpace).base(), text.end());
+    return text;
+}
+
+inline std::string collapseSpaces(std::string text) {
+    std::string result;
+    bool inSpace = false;
+
+    for (unsigned char ch : text) {
+        if (std::isspace(ch)) {
+            if (!inSpace) {
+                result.push_back(' ');
+                inSpace = true;
+            }
+        } else {
+            result.push_back(static_cast<char>(ch));
+            inSpace = false;
+        }
+    }
+
+    return trimCopy(result);
+}
+
+inline std::vector<std::string> tokenize(const std::string& text) {
+    std::istringstream stream(text);
+    std::vector<std::string> tokens;
+    std::string token;
+
+    while (stream >> token) {
+        tokens.push_back(token);
+    }
+
+    return tokens;
+}
+
+inline std::string joinTokens(const std::vector<std::string>& tokens, size_t startIndex) {
+    std::string result;
+
+    for (size_t i = startIndex; i < tokens.size(); ++i) {
+        if (!result.empty())
+            result += ' ';
+        result += tokens[i];
+    }
+
+    return result;
+}
 
 inline std::wstring utf8ToWide(const std::string& text) {
     if (text.empty())
@@ -56,10 +114,12 @@ inline std::string normalizeUtf8Text(const std::string& text) {
             }
         }
 
-        while (!normalized.empty() && normalized.front() == L' ')
-            normalized.erase(normalized.begin());
-        while (!normalized.empty() && normalized.back() == L' ')
-            normalized.pop_back();
+        std::wstring::size_type first = normalized.find_first_not_of(L' ');
+        std::wstring::size_type last = normalized.find_last_not_of(L' ');
+        if (first == std::wstring::npos)
+            normalized.clear();
+        else
+            normalized = normalized.substr(first, last - first + 1);
 
         return wideToUtf8(normalized);
     }
@@ -70,3 +130,5 @@ inline std::string normalizeUtf8Text(const std::string& text) {
     });
     return ascii;
 }
+
+} // namespace TextUtils

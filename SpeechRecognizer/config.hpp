@@ -4,15 +4,20 @@
 #include <string>
 #include <vector>
 
+/*
+    В будущем: перенести всю настройку в веб-приложение, настройки хранить в json формате
+*/
+
 struct VoiceCommandSpec {
     std::string id;
     std::vector<std::string> phrases;
 };
 
-inline const char* VA_NAME = "Ксения";
-inline const char* VA_PREFIX = "ксения";
+inline const char* VA_NAME = "Юми";
+inline const char* VA_PREFIX = "юми";
 inline const float VA_VER = 0.3f;
 inline const char* PLANLIST_PATH = "C:/Users/Noobie/Documents/PlanList.txt";
+inline const char* VA_MODEL_NAME = "vosk-model-small-ru-0.22";
 
 inline const std::vector<std::string>& VA_TBR() {
     static const std::vector<std::string> value = {

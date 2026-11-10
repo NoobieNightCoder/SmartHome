@@ -2,8 +2,10 @@
 
 #include <string>
 
+#include "CommandResult.h"
+
 class ICommand {
 public:
-    virtual void execute(const std::string& argument = "") = 0;
+    virtual CommandResult execute(const std::string& argument = "") = 0;
     virtual ~ICommand() = default;
 };

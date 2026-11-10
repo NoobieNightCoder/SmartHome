@@ -128,6 +128,78 @@ voice_app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/build
 .PHONY : voice_app/fast
 
+Commands/CommandDispatcher.obj: Commands/CommandDispatcher.cpp.obj
+.PHONY : Commands/CommandDispatcher.obj
+
+# target to build an object file
+Commands/CommandDispatcher.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/Commands/CommandDispatcher.cpp.obj
+.PHONY : Commands/CommandDispatcher.cpp.obj
+
+Commands/CommandDispatcher.i: Commands/CommandDispatcher.cpp.i
+.PHONY : Commands/CommandDispatcher.i
+
+# target to preprocess a source file
+Commands/CommandDispatcher.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/Commands/CommandDispatcher.cpp.i
+.PHONY : Commands/CommandDispatcher.cpp.i
+
+Commands/CommandDispatcher.s: Commands/CommandDispatcher.cpp.s
+.PHONY : Commands/CommandDispatcher.s
+
+# target to generate assembly for a file
+Commands/CommandDispatcher.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/Commands/CommandDispatcher.cpp.s
+.PHONY : Commands/CommandDispatcher.cpp.s
+
+Commands/SimpleOpenCommands.obj: Commands/SimpleOpenCommands.cpp.obj
+.PHONY : Commands/SimpleOpenCommands.obj
+
+# target to build an object file
+Commands/SimpleOpenCommands.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/Commands/SimpleOpenCommands.cpp.obj
+.PHONY : Commands/SimpleOpenCommands.cpp.obj
+
+Commands/SimpleOpenCommands.i: Commands/SimpleOpenCommands.cpp.i
+.PHONY : Commands/SimpleOpenCommands.i
+
+# target to preprocess a source file
+Commands/SimpleOpenCommands.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/Commands/SimpleOpenCommands.cpp.i
+.PHONY : Commands/SimpleOpenCommands.cpp.i
+
+Commands/SimpleOpenCommands.s: Commands/SimpleOpenCommands.cpp.s
+.PHONY : Commands/SimpleOpenCommands.s
+
+# target to generate assembly for a file
+Commands/SimpleOpenCommands.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/Commands/SimpleOpenCommands.cpp.s
+.PHONY : Commands/SimpleOpenCommands.cpp.s
+
+Exceptions/Exceptions.obj: Exceptions/Exceptions.cpp.obj
+.PHONY : Exceptions/Exceptions.obj
+
+# target to build an object file
+Exceptions/Exceptions.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/Exceptions/Exceptions.cpp.obj
+.PHONY : Exceptions/Exceptions.cpp.obj
+
+Exceptions/Exceptions.i: Exceptions/Exceptions.cpp.i
+.PHONY : Exceptions/Exceptions.i
+
+# target to preprocess a source file
+Exceptions/Exceptions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/Exceptions/Exceptions.cpp.i
+.PHONY : Exceptions/Exceptions.cpp.i
+
+Exceptions/Exceptions.s: Exceptions/Exceptions.cpp.s
+.PHONY : Exceptions/Exceptions.s
+
+# target to generate assembly for a file
+Exceptions/Exceptions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/Exceptions/Exceptions.cpp.s
+.PHONY : Exceptions/Exceptions.cpp.s
+
 SpeechRecognizer/AudioPlayer.obj: SpeechRecognizer/AudioPlayer.cpp.obj
 .PHONY : SpeechRecognizer/AudioPlayer.obj
 
@@ -151,6 +223,30 @@ SpeechRecognizer/AudioPlayer.s: SpeechRecognizer/AudioPlayer.cpp.s
 SpeechRecognizer/AudioPlayer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.s
 .PHONY : SpeechRecognizer/AudioPlayer.cpp.s
+
+SpeechRecognizer/CommandProcessor.obj: SpeechRecognizer/CommandProcessor.cpp.obj
+.PHONY : SpeechRecognizer/CommandProcessor.obj
+
+# target to build an object file
+SpeechRecognizer/CommandProcessor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/SpeechRecognizer/CommandProcessor.cpp.obj
+.PHONY : SpeechRecognizer/CommandProcessor.cpp.obj
+
+SpeechRecognizer/CommandProcessor.i: SpeechRecognizer/CommandProcessor.cpp.i
+.PHONY : SpeechRecognizer/CommandProcessor.i
+
+# target to preprocess a source file
+SpeechRecognizer/CommandProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/SpeechRecognizer/CommandProcessor.cpp.i
+.PHONY : SpeechRecognizer/CommandProcessor.cpp.i
+
+SpeechRecognizer/CommandProcessor.s: SpeechRecognizer/CommandProcessor.cpp.s
+.PHONY : SpeechRecognizer/CommandProcessor.s
+
+# target to generate assembly for a file
+SpeechRecognizer/CommandProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/SpeechRecognizer/CommandProcessor.cpp.s
+.PHONY : SpeechRecognizer/CommandProcessor.cpp.s
 
 SpeechRecognizer/SpeechRecognizer.obj: SpeechRecognizer/SpeechRecognizer.cpp.obj
 .PHONY : SpeechRecognizer/SpeechRecognizer.obj
@@ -200,30 +296,6 @@ SpeechRecognizer/miniaudio_impl.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/SpeechRecognizer/miniaudio_impl.cpp.s
 .PHONY : SpeechRecognizer/miniaudio_impl.cpp.s
 
-commands/SimpleOpenCommands.obj: commands/SimpleOpenCommands.cpp.obj
-.PHONY : commands/SimpleOpenCommands.obj
-
-# target to build an object file
-commands/SimpleOpenCommands.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.obj
-.PHONY : commands/SimpleOpenCommands.cpp.obj
-
-commands/SimpleOpenCommands.i: commands/SimpleOpenCommands.cpp.i
-.PHONY : commands/SimpleOpenCommands.i
-
-# target to preprocess a source file
-commands/SimpleOpenCommands.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.i
-.PHONY : commands/SimpleOpenCommands.cpp.i
-
-commands/SimpleOpenCommands.s: commands/SimpleOpenCommands.cpp.s
-.PHONY : commands/SimpleOpenCommands.s
-
-# target to generate assembly for a file
-commands/SimpleOpenCommands.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\voice_app.dir\build.make CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.s
-.PHONY : commands/SimpleOpenCommands.cpp.s
-
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -257,18 +329,27 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... voice_app
+	@echo ... Commands/CommandDispatcher.obj
+	@echo ... Commands/CommandDispatcher.i
+	@echo ... Commands/CommandDispatcher.s
+	@echo ... Commands/SimpleOpenCommands.obj
+	@echo ... Commands/SimpleOpenCommands.i
+	@echo ... Commands/SimpleOpenCommands.s
+	@echo ... Exceptions/Exceptions.obj
+	@echo ... Exceptions/Exceptions.i
+	@echo ... Exceptions/Exceptions.s
 	@echo ... SpeechRecognizer/AudioPlayer.obj
 	@echo ... SpeechRecognizer/AudioPlayer.i
 	@echo ... SpeechRecognizer/AudioPlayer.s
+	@echo ... SpeechRecognizer/CommandProcessor.obj
+	@echo ... SpeechRecognizer/CommandProcessor.i
+	@echo ... SpeechRecognizer/CommandProcessor.s
 	@echo ... SpeechRecognizer/SpeechRecognizer.obj
 	@echo ... SpeechRecognizer/SpeechRecognizer.i
 	@echo ... SpeechRecognizer/SpeechRecognizer.s
 	@echo ... SpeechRecognizer/miniaudio_impl.obj
 	@echo ... SpeechRecognizer/miniaudio_impl.i
 	@echo ... SpeechRecognizer/miniaudio_impl.s
-	@echo ... commands/SimpleOpenCommands.obj
-	@echo ... commands/SimpleOpenCommands.i
-	@echo ... commands/SimpleOpenCommands.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

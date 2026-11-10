@@ -3,25 +3,28 @@
 #include <filesystem>
 
 #include "SpeechRecognizer/SpeechRecognizer.h"
+#include "SpeechRecognizer/config.hpp"
 #include "SpeechRecognizer/AudioPlayer.h"
 #include "Exceptions/IExceptions.h"
 
 using namespace std;
 
 /*
-    TODO LIST:
-    1. Закончить перепись функций
-    2. Добавить к каждым функциям описание (чтобы в будущем понимать, что за что отвечает)
-    3. Выделить часто используемые функции в namespace и вынести в отдельную библиотеку-обработчик
-    4. Подкорректировать exceptions
-    5. Сделать программу более гибкой для модификаций
-    6. Добавить интерфейс для подключения LLM модели
-    7. Сделать автоматическое воспроизведение звука
+TODO LIST:
+    1. 📝 Добавить к каждым функциям описание (чтобы в будущем понимать, что за что отвечает)
+    2. 🛠️ Подкорректировать exceptions
+    3. 🔧 Сделать программу более гибкой для модификаций
+    4. 🤖 Добавить интерфейс для подключения LLM модели
+    5. 🔊 Сделать автоматическое воспроизведение звука
+    6. 🧩 Разделить SpeechRecognizer на компоненты: захват аудио, Vosk-распознавание, нормализация текста, поиск команды, диспетчер команд.
+    🌀 Сейчас один класс отвечает за весь конвейер, поэтому его сложно менять и тестировать.
+
+    7. 🛑 Сделать штатное завершение. Бесконечный waitForExit() не даёт гарантированно вызвать recognizer.stop().
+    📌 Нужны обработчик консольного события и контролируемая остановка (команда "заверши свою работу").
+
 */
 
 namespace {
-const string modelName = "vosk-model-small-ru-0.22";
-
 string resolveModelPath() {
     char modulePath[MAX_PATH]{};
     DWORD length = GetModuleFileNameA(nullptr, modulePath, MAX_PATH);
@@ -29,7 +32,7 @@ string resolveModelPath() {
         throw FilePathException(FilePathException::messages::rootFileNotFound);
 
     filesystem::path exePath(modulePath);
-    filesystem::path candidate = exePath.parent_path() / "models" / modelName;
+    filesystem::path candidate = exePath.parent_path() / "models" / VA_MODEL_NAME;
     if (!filesystem::exists(candidate))
         throw FilePathException(FilePathException::messages::modelNotFound);
 

@@ -19,14 +19,32 @@
 },
 {
   "directory": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\commands\\SimpleOpenCommands.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\commands\\SimpleOpenCommands.cpp",
-  "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/commands/SimpleOpenCommands.cpp",
-  "output": "CMakeFiles/voice_app.dir/commands/SimpleOpenCommands.cpp.obj"
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\Commands\\CommandDispatcher.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\Commands\\CommandDispatcher.cpp",
+  "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/Commands/CommandDispatcher.cpp",
+  "output": "CMakeFiles/voice_app.dir/Commands/CommandDispatcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\Commands\\SimpleOpenCommands.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\Commands\\SimpleOpenCommands.cpp",
+  "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/Commands/SimpleOpenCommands.cpp",
+  "output": "CMakeFiles/voice_app.dir/Commands/SimpleOpenCommands.cpp.obj"
 },
 {
   "directory": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/build",
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\SpeechRecognizer\\AudioPlayer.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\SpeechRecognizer\\AudioPlayer.cpp",
   "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/SpeechRecognizer/AudioPlayer.cpp",
   "output": "CMakeFiles/voice_app.dir/SpeechRecognizer/AudioPlayer.cpp.obj"
+},
+{
+  "directory": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\SpeechRecognizer\\CommandProcessor.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\SpeechRecognizer\\CommandProcessor.cpp",
+  "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/SpeechRecognizer/CommandProcessor.cpp",
+  "output": "CMakeFiles/voice_app.dir/SpeechRecognizer/CommandProcessor.cpp.obj"
+},
+{
+  "directory": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/voice_app.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\voice_app.dir\\Exceptions\\Exceptions.cpp.obj -c C:\\Users\\Noobie\\Documents\\Programms\\AI_Assistant_CPP\\Exceptions\\Exceptions.cpp",
+  "file": "C:/Users/Noobie/Documents/Programms/AI_Assistant_CPP/Exceptions/Exceptions.cpp",
+  "output": "CMakeFiles/voice_app.dir/Exceptions/Exceptions.cpp.obj"
 }
 ]

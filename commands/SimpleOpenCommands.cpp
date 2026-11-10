@@ -2,8 +2,6 @@
 #include "../SpeechRecognizer/config.hpp"
 #include "../TextUtils.h"
 
-#include <algorithm>
-#include <cctype>
 #include <ctime>
 #include <fstream>
 #include <iomanip>
@@ -15,37 +13,21 @@
 using namespace std;
 
 namespace {
-string trimCopy(string text) {
-    auto notSpace = [](unsigned char ch) {
-        return !std::isspace(ch);
-    };
-
-    text.erase(text.begin(), find_if(text.begin(), text.end(), notSpace));
-    text.erase(find_if(text.rbegin(), text.rend(), notSpace).base(), text.end());
-    return text;
-}
-
-string collapseSpaces(string text) {
-    string result;
-    bool inSpace = false;
-
-    for (unsigned char ch : text) {
-        if (isspace(ch)) {
-            if (!inSpace) {
-                result.push_back(' ');
-                inSpace = true;
-            }
-        } else {
-            result.push_back(static_cast<char>(ch));
-            inSpace = false;
-        }
-    }
-
-    return trimCopy(result);
-}
-
 string normalizeText(string text) {
-    return normalizeUtf8Text(text);
+    return TextUtils::normalizeUtf8Text(text);
+}
+
+CommandResult launch(const char* target) {
+    HINSTANCE launchResult = ShellExecuteA(nullptr, "open", target, nullptr, nullptr, SW_SHOWNORMAL);
+    intptr_t resultCode = reinterpret_cast<intptr_t>(launchResult);
+    CommandResult result;
+
+    if (resultCode > 32)
+        result = CommandResult::completed();
+    else
+        result = CommandResult::failed("Failed to launch: " + string(target));
+
+    return result;
 }
 
 string urlEncode(const string& text) {
@@ -76,97 +58,97 @@ string currentTimeString() {
 }
 } // namespace
 
-void openCalculator::execute(const string& argument) {
+CommandResult openCalculator::execute(const string& argument) {
     (void)argument;
-    ShellExecute(NULL, "open", "calc.exe", NULL, NULL, SW_SHOWNORMAL);
+    return launch("calc.exe");
 }
 
-void openExplorer::execute(const string& argument) {
+CommandResult openExplorer::execute(const string& argument) {
     (void)argument;
-    ShellExecute(NULL, "open", "explorer.exe", NULL, NULL, SW_SHOWNORMAL);
+    return launch("explorer.exe");
 }
 
-void openSettings::execute(const string& argument) {
+CommandResult openSettings::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Settings").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Settings").c_str());
 }
 
-void openNotepad::execute(const string& argument) {
+CommandResult openNotepad::execute(const string& argument) {
     (void)argument;
-    ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOWNORMAL);
+    return launch("notepad.exe");
 }
 
-void openCalendar::execute(const string& argument) {
+CommandResult openCalendar::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Outlook").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Outlook").c_str());
 }
 
-void openVSC::execute(const string& argument) {
+CommandResult openVSC::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("VSC").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("VSC").c_str());
 }
 
-void openSteam::execute(const string& argument) {
+CommandResult openSteam::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Steam").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Steam").c_str());
 }
 
-void openDiscord::execute(const string& argument) {
+CommandResult openDiscord::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Discord").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Discord").c_str());
 }
 
-void openObsidian::execute(const string& argument) {
+CommandResult openObsidian::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Obsidian").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Obsidian").c_str());
 }
 
-void openTelegram::execute(const string& argument) {
+CommandResult openTelegram::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Telegram").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Telegram").c_str());
 }
 
-void openGoogle::execute(const string& argument) {
+CommandResult openGoogle::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Google Chrome").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Google Chrome").c_str());
 }
 
-void openPhoneLink::execute(const string& argument) {
+CommandResult openPhoneLink::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Phone Link").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Phone Link").c_str());
 }
 
-void openOsu::execute(const string& argument) {
+CommandResult openOsu::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Osu").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Osu").c_str());
 }
 
-void openOsuLaser::execute(const string& argument) {
+CommandResult openOsuLaser::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Osu Laser").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Osu Laser").c_str());
 }
 
-void openMinecraft::execute(const string& argument) {
+CommandResult openMinecraft::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Minecraft").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Minecraft").c_str());
 }
 
-void openKovaaks::execute(const string& argument) {
+CommandResult openKovaaks::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("Kovaaks").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("Kovaaks").c_str());
 }
 
-void openCS2::execute(const string& argument) {
+CommandResult openCS2::execute(const string& argument) {
     (void)argument;
-    ShellExecuteA(NULL, "open", VA_PROGRAMM_PATHS().at("CS2").c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(VA_PROGRAMM_PATHS().at("CS2").c_str());
 }
 
-void showTime::execute(const string& argument) {
+CommandResult showTime::execute(const string& argument) {
     (void)argument;
-    cout << "[Time] " << currentTimeString() << endl;
+    return CommandResult::completed("[Time] " + currentTimeString());
 }
 
-void googleSearch::execute(const string& argument) {
+CommandResult googleSearch::execute(const string& argument) {
     string query = normalizeText(argument);
     string url = "https://www.google.com/search?q=";
 
@@ -174,38 +156,47 @@ void googleSearch::execute(const string& argument) {
         url += urlEncode(query);
     }
 
-    ShellExecuteA(NULL, "open", url.c_str(), NULL, NULL, SW_SHOWNORMAL);
+    return launch(url.c_str());
 }
 
-void appendPlanList::execute(const string& argument) {
+CommandResult appendPlanList::execute(const string& argument) {
     string entry = normalizeText(argument);
+    CommandResult result;
+
     if (!entry.empty()) {
         ofstream file(PLANLIST_PATH, ios::app);
         
         if (file.is_open()) {
             file << entry << '\n';
-            cout << "[PlanList] Added: " << entry << endl;
+            result = CommandResult::completed("[PlanList] Added: " + entry);
         } else {
-            cout << "[PlanList] Failed to open file for writing: " << PLANLIST_PATH << endl;
+            result = CommandResult::failed("[PlanList] Failed to open file for writing: " + string(PLANLIST_PATH));
         }
     } else {
-        cout << "[PlanList] Empty entry, nothing to append." << endl;
-    }    
+        result = CommandResult::failed("[PlanList] Empty entry, nothing to append.");
+    }
+
+    return result;
 }
 
-void readPlanList::execute(const string& argument) {
+CommandResult readPlanList::execute(const string& argument) {
     (void)argument;
+    CommandResult result;
 
     ifstream file(PLANLIST_PATH);
     
     if (file.is_open()) {
         string line;
-        cout << "[PlanList]" << endl;
+        ostringstream content;
+        content << "[PlanList]";
 
         while (getline(file, line)) {
-            cout << " - " << line << endl;
+            content << "\n - " << line;
         }
+        result = CommandResult::completed(content.str());
     } else {
-        cout << "[PlanList] Failed to open file for reading: " << PLANLIST_PATH << endl;
+        result = CommandResult::failed("[PlanList] Failed to open file for reading: " + string(PLANLIST_PATH));
     }
+
+    return result;
 }

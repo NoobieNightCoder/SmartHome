@@ -2,7 +2,7 @@
 
 #include <miniaudio/miniaudio.h>
 #include "vosk_api.h"
-#include "../commands/ICommand.h"
+#include "../Commands/ICommand.h"
 #include <memory>
 #include <unordered_map>
 #include <vector>

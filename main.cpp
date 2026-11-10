@@ -4,50 +4,61 @@
 
 #include "SpeechRecognizer/SpeechRecognizer.h"
 #include "SpeechRecognizer/AudioPlayer.h"
+#include "Exceptions/IExceptions.h"
 
 using namespace std;
 
+/*
+    TODO LIST:
+    1. Закончить перепись функций
+    2. Добавить к каждым функциям описание (чтобы в будущем понимать, что за что отвечает)
+    3. Выделить часто используемые функции в namespace и вынести в отдельную библиотеку-обработчик
+    4. Подкорректировать exceptions
+    5. Сделать программу более гибкой для модификаций
+    6. Добавить интерфейс для подключения LLM модели
+    7. Сделать автоматическое воспроизведение звука
+*/
+
 namespace {
+const string modelName = "vosk-model-small-ru-0.22";
+
 string resolveModelPath() {
     char modulePath[MAX_PATH]{};
     DWORD length = GetModuleFileNameA(nullptr, modulePath, MAX_PATH);
+    if (length <= 0 || length >= MAX_PATH)
+        throw FilePathException(FilePathException::messages::rootFileNotFound);
 
-    if (length > 0 && length < MAX_PATH) {
-        filesystem::path exePath(modulePath);
-        filesystem::path candidate = exePath.parent_path() / "models" / "vosk-model-small-ru-0.22";
-        if (filesystem::exists(candidate))
-            return candidate.string();
-    }
+    filesystem::path exePath(modulePath);
+    filesystem::path candidate = exePath.parent_path() / "models" / modelName;
+    if (!filesystem::exists(candidate))
+        throw FilePathException(FilePathException::messages::modelNotFound);
 
-    return "bin/models/vosk-model-small-ru-0.22";
+    return candidate.string();
 }
 
 string resolveResponsePath() {
     char modulePath[MAX_PATH]{};
     DWORD length = GetModuleFileNameA(nullptr, modulePath, MAX_PATH);
 
-    if (length > 0 && length < MAX_PATH) {
-        filesystem::path projectRoot = filesystem::path(modulePath).parent_path().parent_path();
-        filesystem::path candidate = projectRoot / "response.wav";
-        if (filesystem::exists(candidate))
-            return candidate.string();
-    }
+    if (length <= 0 || length >= MAX_PATH)
+        throw FilePathException("RootFolder not found");
 
-    filesystem::path candidate = filesystem::current_path() / "response.wav";
-    if (filesystem::exists(candidate))
-        return candidate.string();
+    filesystem::path projectRoot = filesystem::path(modulePath).parent_path().parent_path();
+    filesystem::path candidate = projectRoot / "response.wav";
+    
+    if (!filesystem::exists(candidate))
+        throw FilePathException("Answer not found");
 
-    throw runtime_error("Не найден response.wav в корне проекта или текущей рабочей папке.");
+    return candidate.string();
 }
 
 void waitForExit() {
-    cout << "Speak... Press Ctrl+C to exit.\n";
+    cout << "Speak... Press Ctrl+C to exit." << endl;
 
     while (true) {
         Sleep(1000);
     }
 }
-} // namespace
 
 void setupConsole() {
     SetConsoleCP(CP_UTF8);
@@ -56,7 +67,11 @@ void setupConsole() {
     cerr.setf(std::ios::unitbuf);
 }
 
+} // namespace
+
 int main() {
+    int returnResult = 0;
+
     setupConsole();
 
     try {
@@ -68,15 +83,13 @@ int main() {
         cout << "[Startup] Model loaded." << endl;
 
         AudioPlayer audioPlayer;
-        if (!audioPlayer.isInitialized()) {
-            throw runtime_error("Не удалось инициализировать аудиоплеер.");
-        }
+        if (!audioPlayer.isInitialized())
+            throw AudioException(AudioException::messages::audioInitializeError);
 
         const string responsePath = resolveResponsePath();
         cout << "[Startup] Playing audio: " << responsePath << endl;
-        if (!audioPlayer.playWav(responsePath.c_str())) {
-            throw runtime_error("Не удалось воспроизвести response.wav.");
-        }
+        if (!audioPlayer.playWav(responsePath.c_str()))
+            throw AudioException(AudioException::messages::audioPlayError);
 
         recognizer.start();
         cout << "[Startup] Microphone started." << endl;
@@ -85,11 +98,11 @@ int main() {
 
         recognizer.stop();
     } catch (const exception& ex) {
+        returnResult = 1;
         cerr << "[Startup error] " << ex.what() << endl;
         cout << "Press any key to close..." << endl;
         cin.get();
-        return 1;
     }
 
-    return 0;
+    return returnResult;
 }

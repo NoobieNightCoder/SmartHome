@@ -17,12 +17,14 @@ add_executable(voice_app
     SpeechRecognizer/SpeechRecognizer.h
     SpeechRecognizer/SpeechRecognizer.cpp
     main.cpp
-    commands/ICommand.h
-    commands/SimpleOpenCommands.h
-    commands/SimpleOpenCommands.cpp
+    Commands/ICommand.h
+    Commands/SimpleOpenCommands.h
+    Commands/SimpleOpenCommands.cpp
     SpeechRecognizer/config.hpp
     SpeechRecognizer/AudioPlayer.h
     SpeechRecognizer/AudioPlayer.cpp
+    Exceptions/IExceptions.h
+    Exceptions/Exceptions.cpp
 )
 
 target_include_directories(voice_app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

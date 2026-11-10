@@ -11,7 +11,6 @@
 #include <sstream>
 
 #include <windows.h>
-#include <shellapi.h>
 
 using namespace std;
 
@@ -180,34 +179,33 @@ void googleSearch::execute(const string& argument) {
 
 void appendPlanList::execute(const string& argument) {
     string entry = normalizeText(argument);
-    if (entry.empty()) {
+    if (!entry.empty()) {
+        ofstream file(PLANLIST_PATH, ios::app);
+        
+        if (file.is_open()) {
+            file << entry << '\n';
+            cout << "[PlanList] Added: " << entry << endl;
+        } else {
+            cout << "[PlanList] Failed to open file for writing: " << PLANLIST_PATH << endl;
+        }
+    } else {
         cout << "[PlanList] Empty entry, nothing to append." << endl;
-        return;
-    }
-
-    ofstream file(PLANLIST_PATH, ios::app);
-    if (!file.is_open()) {
-        cout << "[PlanList] Failed to open file for writing: " << PLANLIST_PATH << endl;
-        return;
-    }
-
-    file << entry << '\n';
-    cout << "[PlanList] Added: " << entry << endl;
+    }    
 }
 
 void readPlanList::execute(const string& argument) {
     (void)argument;
 
     ifstream file(PLANLIST_PATH);
-    if (!file.is_open()) {
+    
+    if (file.is_open()) {
+        string line;
+        cout << "[PlanList]" << endl;
+
+        while (getline(file, line)) {
+            cout << " - " << line << endl;
+        }
+    } else {
         cout << "[PlanList] Failed to open file for reading: " << PLANLIST_PATH << endl;
-        return;
-    }
-
-    string line;
-    cout << "[PlanList]" << endl;
-
-    while (getline(file, line)) {
-        cout << " - " << line << endl;
     }
 }

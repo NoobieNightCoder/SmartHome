@@ -1,7 +1,8 @@
 #include "SpeechRecognizer.h"
-#include "../commands/SimpleOpenCommands.h"
+#include "../Commands/SimpleOpenCommands.h"
 #include "../SpeechRecognizer/config.hpp"
 #include "../TextUtils.h"
+#include "../Exceptions/IExceptions.h"
 
 #include <algorithm>
 #include <cctype>
@@ -59,74 +60,75 @@ vector<string> tokenize(const string& text) {
 }
 
 string joinTokens(const vector<string>& tokens, size_t startIndex) {
-    if (startIndex >= tokens.size())
-        return {};
-
-    ostringstream stream;
-    for (size_t i = startIndex; i < tokens.size(); ++i) {
-        if (i > startIndex)
-            stream << ' ';
-        stream << tokens[i];
+    string result = "";
+    if (startIndex < tokens.size()) {
+        ostringstream stream;
+        for (size_t i = startIndex; i < tokens.size(); ++i) {
+            if (i > startIndex)
+                stream << ' ';
+            stream << tokens[i];
+        }
+        result = stream.str();
     }
-    return stream.str();
+    return result;
 }
 
 string jsonFieldValue(const string& jsonText, const string& fieldName) {
+    string result = "";
+
     const string marker = "\"" + fieldName + "\"";
     size_t fieldPos = jsonText.find(marker);
-    if (fieldPos == string::npos)
-        return {};
+    size_t valueStart;
 
-    size_t colonPos = jsonText.find(':', fieldPos + marker.size());
-    if (colonPos == string::npos)
-        return {};
-
-    size_t valueStart = jsonText.find('"', colonPos + 1);
-    if (valueStart == string::npos)
-        return {};
-
-    ++valueStart;
-    string value;
-    bool escaped = false;
-
-    for (size_t i = valueStart; i < jsonText.size(); ++i) {
-        char ch = jsonText[i];
-        if (escaped) {
-            value.push_back(ch);
-            escaped = false;
-            continue;
+    if (fieldPos != string::npos) {
+        size_t colonPos = jsonText.find(':', fieldPos + marker.size());
+        if (colonPos != string::npos) {
+            valueStart = jsonText.find('"', colonPos + 1);
         }
-        if (ch == '\\') {
-            escaped = true;
-            continue;
-        }
-        if (ch == '"')
-            break;
-        value.push_back(ch);
     }
 
-    return value;
+    if (valueStart != string::npos) {
+        ++valueStart;
+        bool escaped = false;
+
+        for (size_t i = valueStart; i < jsonText.size(); ++i) {
+            char ch = jsonText[i];
+            if (escaped) {
+                result.push_back(ch);
+                escaped = false;
+                continue;
+            }
+            if (ch == '\\') {
+                escaped = true;
+                continue;
+            }
+            if (ch == '"')
+                break;
+            result.push_back(ch);
+        }
+    }
+
+    return result;
 }
 } // namespace
 
 static void audio_callback(ma_device* device, void* output, const void* input, ma_uint32 frameCount) {
     auto* userData = static_cast<AudioUserData*>(device->pUserData);
 
-    if (!userData || !input)
-        return;
+    if (userData && input) {
+        int byteCount = static_cast<int>(frameCount * sizeof(int16_t));
 
-    int byteCount = static_cast<int>(frameCount * sizeof(int16_t));
+        if (vosk_recognizer_accept_waveform(userData->recognizer, static_cast<const char*>(input), byteCount)) {
+            const char* rawResult = vosk_recognizer_result(userData->recognizer);
+            if (userData->owner && rawResult) {
+                userData->owner->handleFinalText(rawResult);
+            }
 
-    if (vosk_recognizer_accept_waveform(userData->recognizer, static_cast<const char*>(input), byteCount)) {
-        const char* rawResult = vosk_recognizer_result(userData->recognizer);
-        if (userData->owner && rawResult) {
-            userData->owner->handleFinalText(rawResult);
+            vosk_recognizer_reset(userData->recognizer);
         }
 
-        vosk_recognizer_reset(userData->recognizer);
+        (void)output;
     }
-
-    (void)output;
 }
 
 bool SpeechRecognizer::initializeMicrophone() {
@@ -145,11 +147,10 @@ bool SpeechRecognizer::initializeMicrophone() {
 }
 
 bool SpeechRecognizer::startRecording() {
-    if (ma_device_start(&device) != MA_SUCCESS)
-        return false;
-
-    deviceStarted = true;
-    return true;
+    if (ma_device_start(&device) == MA_SUCCESS)
+        deviceStarted = true;
+    
+    return deviceStarted;
 }
 
 string SpeechRecognizer::commandSplit(string text) const {
@@ -162,29 +163,31 @@ string SpeechRecognizer::extractVoskText(const string& jsonText) const {
 }
 
 bool SpeechRecognizer::stripWakeWord(const string& text, string& remainder) const {
+    bool result = false;
+
     vector<string> tokens = tokenize(text);
     for (size_t i = 0; i < tokens.size(); ++i) {
         double score = max(rapidfuzz::fuzz::WRatio(tokens[i], VA_PREFIX),
                                 rapidfuzz::fuzz::partial_ratio(tokens[i], VA_PREFIX));
         if (score >= WAKE_WORD_THRESHOLD) {
             remainder = joinTokens(tokens, i + 1);
-            return true;
+            result = true;
         }
     }
 
-    double fullScore = max(rapidfuzz::fuzz::WRatio(text, VA_PREFIX),
-                                rapidfuzz::fuzz::partial_ratio(text, VA_PREFIX));
-    if (fullScore >= WAKE_WORD_THRESHOLD) {
+    if(!result) {
+        double fullScore = max(rapidfuzz::fuzz::WRatio(text, VA_PREFIX),
+                                    rapidfuzz::fuzz::partial_ratio(text, VA_PREFIX));
+        if (fullScore >= WAKE_WORD_THRESHOLD)
+            result = true;
         remainder.clear();
-        return true;
     }
 
-    remainder.clear();
-    return false;
+    return result;
 }
 
 string SpeechRecognizer::findBestCommandId(const string& text, string& matchedPhrase, double& matchedScore) const {
-    string bestCommandId;
+    string bestCommandId = "";
     matchedPhrase.clear();
     matchedScore = 0.0;
 
@@ -205,29 +208,30 @@ string SpeechRecognizer::findBestCommandId(const string& text, string& matchedPh
 
     if (matchedScore < COMMAND_MATCH_THRESHOLD) {
         matchedPhrase.clear();
-        return {};
     }
 
     return bestCommandId;
 }
 
 string SpeechRecognizer::stripMatchedPhrase(const string& text, const string& matchedPhrase) const {
+    string result = "";
+
     if (matchedPhrase.empty())
-        return text;
+        result = text;
+    else if (text != matchedPhrase) {
+        if (text.rfind(matchedPhrase + " ", 0) == 0) {
+            result = trimCopy(text.substr(matchedPhrase.size() + 1));
+        } else {
+            size_t phrasePos = text.find(matchedPhrase);
+            if (phrasePos != string::npos) {
+                result = text;
+                result.erase(phrasePos, matchedPhrase.size());
+                result = trimCopy(result);
+            }
+        }
+    }
 
-    if (text == matchedPhrase)
-        return {};
-
-    if (text.rfind(matchedPhrase + " ", 0) == 0)
-        return trimCopy(text.substr(matchedPhrase.size() + 1));
-
-    size_t phrasePos = text.find(matchedPhrase);
-    if (phrasePos == string::npos)
-        return {};
-
-    string result = text;
-    result.erase(phrasePos, matchedPhrase.size());
-    return trimCopy(result);
+    return result;
 }
 
 void SpeechRecognizer::buildCommandRegistry() {
@@ -258,14 +262,15 @@ void SpeechRecognizer::buildCommandRegistry() {
 
 void SpeechRecognizer::executeCommand(const string& commandId, const string& argument) {
     auto it = commandRegistry.find(commandId);
+
     if (it == commandRegistry.end()) {
         cout << "Command object not found for id: " << commandId << endl;
-        return;
+    } else {
+        it->second->execute(argument);
     }
-
-    it->second->execute(argument);
 }
 
+// TODO: переписать
 void SpeechRecognizer::handleFinalText(const string& jsonText) {
     string recognizedText = extractVoskText(jsonText);
     string normalizedText = commandSplit(recognizedText);
@@ -308,28 +313,27 @@ void SpeechRecognizer::handleFinalText(const string& jsonText) {
 }
 
 void SpeechRecognizer::shutdown() {
-    if (shutdownComplete)
-        return;
+    if (!shutdownComplete) {
+        if (deviceStarted) {
+            ma_device_stop(&device);
+            ma_device_uninit(&device);
+            deviceStarted = false;
+        }
 
-    if (deviceStarted) {
-        ma_device_stop(&device);
-        ma_device_uninit(&device);
-        deviceStarted = false;
+        cout << "\n[Final result]:\n" << vosk_recognizer_final_result(recognizer.get()) << endl;
+        shutdownComplete = true;
     }
-
-    cout << "\n[Final result]:\n" << vosk_recognizer_final_result(recognizer.get()) << endl;
-    shutdownComplete = true;
 }
 
 SpeechRecognizer::SpeechRecognizer(const string& path) {
     ModelPtr newModel(vosk_model_new(path.c_str()));
     if (!newModel)
-        throw runtime_error("Failed to load Vosk model.");
+        throw RecognitionException(RecognitionException::messages::modelLoadError);
     model = move(newModel);
 
     RecognizerPtr newRecognizer(vosk_recognizer_new(model.get(), SAMPLE_RATE));
     if (!newRecognizer)
-        throw runtime_error("Failed to create recognizer.");
+        throw RecognitionException(RecognitionException::messages::recognizerFail);
     recognizer = move(newRecognizer);
     vosk_recognizer_set_max_alternatives(recognizer.get(), 0);
 
@@ -343,11 +347,11 @@ void SpeechRecognizer::start() {
     try {
         bool microStatus = initializeMicrophone();
         if (!microStatus)
-            throw runtime_error("Failed to initialize microphone!");
+            throw RecognitionException(RecognitionException::messages::microphoneInitializeError);
 
         bool recordingStatus = startRecording();
         if (!recordingStatus)
-            throw runtime_error("Failed to start recording!");
+            throw RecognitionException(RecognitionException::messages::recordFail);
 
         cout << "Ready to listen!" << endl;
     } catch (const exception& ex) {
